@@ -1,0 +1,45 @@
+[build-system]
+requires = [
+    "hatchling>=1.10.0", "ipykernel"
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "ijava"
+dynamic = [
+    "version",
+]
+description = "Simple java kernel for Jupyter"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Traiko Dinev", email = "traiko.dinev@gmail.com" },
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "ipykernel",
+    "jupyter_client",
+]
+
+[project.urls]
+Homepage = "https://github.com/traikodinev/ijava"
+
+[tool.hatch.version]
+path = "ijava/__init__.py"
+
+# Used to call hatch_build.py
+[tool.hatch.build.hooks.custom]
+
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/ijava",
+]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"data_kernelspec/share" = "share"
